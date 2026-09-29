@@ -1,0 +1,1410 @@
+[
+  {
+    "id": "photo_examples",
+    "title": "Пять фотоэталонов с подписями из документа",
+    "source_document": "Фото.docx",
+    "source_sha256": "e1d422a464f865f5c2ba38b0778ba2b387a59c1a086c2346b147cc0d7a00c344",
+    "calibrated": false,
+    "reference_intensity_uw_cm2": 1500.0,
+    "white_balance_target": 240,
+    "warnings": [
+      "Оценка по пяти фото-примерам; независимая физическая калибровка и точность не подтверждены.",
+      "Возвращается ближайший фотоэталон, без интерполяции и без точности 1%. Освещение, время экспозиции и тип карты должны совпадать с калибровкой."
+    ],
+    "samples": [
+      {
+        "id": "photo-1",
+        "rgb": [
+          232,
+          192,
+          230
+        ],
+        "intensity_uw_cm2": 691.0,
+        "protection_percent": 53.93,
+        "source_protection_percent": 54.0,
+        "source_transmission_percent": 46.0,
+        "source_image": "examples/photo-1.png"
+      },
+      {
+        "id": "photo-2",
+        "rgb": [
+          238,
+          206,
+          234
+        ],
+        "intensity_uw_cm2": 626.0,
+        "protection_percent": 58.27,
+        "source_protection_percent": 58.2,
+        "source_transmission_percent": 41.7,
+        "source_image": "examples/photo-2.png"
+      },
+      {
+        "id": "photo-3",
+        "rgb": [
+          243,
+          222,
+          236
+        ],
+        "intensity_uw_cm2": 595.0,
+        "protection_percent": 60.33,
+        "source_protection_percent": 60.3,
+        "source_transmission_percent": 39.7,
+        "source_image": "examples/photo-3.png"
+      },
+      {
+        "id": "photo-4",
+        "rgb": [
+          236,
+          234,
+          232
+        ],
+        "intensity_uw_cm2": 0.0,
+        "protection_percent": 100.0,
+        "source_protection_percent": 100.0,
+        "source_transmission_percent": 0.0,
+        "source_image": "examples/photo-4.png"
+      },
+      {
+        "id": "photo-5",
+        "rgb": [
+          174,
+          91,
+          172
+        ],
+        "intensity_uw_cm2": 1500.0,
+        "protection_percent": 0.0,
+        "source_protection_percent": 0.0,
+        "source_transmission_percent": 100.0,
+        "source_image": "examples/photo-5.png"
+      }
+    ]
+  },
+  {
+    "id": "document_template",
+    "title": "Учебная таблица: 101 цвет",
+    "source_document": "UV_тесткарта_библиотека.docx",
+    "source_sha256": "d2c6492405fdef573f31188cd39e9f9c7d40b63eee65c976ad6106d83f38adf7",
+    "calibrated": false,
+    "reference_intensity_uw_cm2": 1500.0,
+    "white_balance_target": null,
+    "max_color_distance": null,
+    "warnings": [
+      "Расчёт по учебной таблице цветов; калиброванные данные будут добавлены после опытов."
+    ],
+    "samples": [
+      {
+        "id": "protection-0",
+        "rgb": [
+          237,
+          220,
+          250
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 0.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-1",
+        "rgb": [
+          235,
+          217,
+          249
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 1.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-2",
+        "rgb": [
+          232,
+          214,
+          247
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 2.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-3",
+        "rgb": [
+          230,
+          211,
+          246
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 3.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-4",
+        "rgb": [
+          228,
+          208,
+          245
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 4.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-5",
+        "rgb": [
+          226,
+          205,
+          243
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 5.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-6",
+        "rgb": [
+          224,
+          202,
+          242
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 6.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-7",
+        "rgb": [
+          222,
+          199,
+          241
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 7.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-8",
+        "rgb": [
+          220,
+          196,
+          239
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 8.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-9",
+        "rgb": [
+          218,
+          193,
+          238
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 9.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-10",
+        "rgb": [
+          216,
+          190,
+          237
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 10.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-11",
+        "rgb": [
+          214,
+          187,
+          235
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 11.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-12",
+        "rgb": [
+          212,
+          184,
+          234
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 12.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-13",
+        "rgb": [
+          210,
+          181,
+          233
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 13.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-14",
+        "rgb": [
+          208,
+          178,
+          231
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 14.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-15",
+        "rgb": [
+          206,
+          175,
+          230
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 15.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-16",
+        "rgb": [
+          204,
+          173,
+          229
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 16.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-17",
+        "rgb": [
+          202,
+          170,
+          227
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 17.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-18",
+        "rgb": [
+          200,
+          167,
+          226
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 18.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-19",
+        "rgb": [
+          198,
+          164,
+          225
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 19.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-20",
+        "rgb": [
+          196,
+          162,
+          223
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 20.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-21",
+        "rgb": [
+          194,
+          159,
+          222
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 21.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-22",
+        "rgb": [
+          192,
+          156,
+          221
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 22.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-23",
+        "rgb": [
+          190,
+          154,
+          219
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 23.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-24",
+        "rgb": [
+          189,
+          151,
+          218
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 24.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-25",
+        "rgb": [
+          187,
+          148,
+          217
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 25.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-26",
+        "rgb": [
+          185,
+          146,
+          215
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 26.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-27",
+        "rgb": [
+          183,
+          143,
+          214
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 27.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-28",
+        "rgb": [
+          181,
+          141,
+          213
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 28.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-29",
+        "rgb": [
+          179,
+          138,
+          211
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 29.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-30",
+        "rgb": [
+          177,
+          136,
+          210
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 30.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-31",
+        "rgb": [
+          176,
+          133,
+          209
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 31.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-32",
+        "rgb": [
+          174,
+          131,
+          207
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 32.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-33",
+        "rgb": [
+          172,
+          128,
+          206
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 33.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-34",
+        "rgb": [
+          170,
+          126,
+          205
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 34.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-35",
+        "rgb": [
+          168,
+          124,
+          203
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 35.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-36",
+        "rgb": [
+          167,
+          121,
+          202
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 36.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-37",
+        "rgb": [
+          165,
+          119,
+          201
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 37.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-38",
+        "rgb": [
+          163,
+          116,
+          200
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 38.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-39",
+        "rgb": [
+          161,
+          114,
+          198
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 39.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-40",
+        "rgb": [
+          159,
+          112,
+          197
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 40.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-41",
+        "rgb": [
+          158,
+          110,
+          196
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 41.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-42",
+        "rgb": [
+          156,
+          107,
+          194
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 42.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-43",
+        "rgb": [
+          154,
+          105,
+          193
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 43.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-44",
+        "rgb": [
+          153,
+          103,
+          192
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 44.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-45",
+        "rgb": [
+          151,
+          101,
+          190
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 45.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-46",
+        "rgb": [
+          149,
+          98,
+          189
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 46.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-47",
+        "rgb": [
+          147,
+          96,
+          188
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 47.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-48",
+        "rgb": [
+          146,
+          94,
+          186
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 48.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-49",
+        "rgb": [
+          144,
+          92,
+          185
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 49.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-50",
+        "rgb": [
+          142,
+          90,
+          184
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 50.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-51",
+        "rgb": [
+          141,
+          88,
+          182
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 51.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-52",
+        "rgb": [
+          139,
+          86,
+          181
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 52.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-53",
+        "rgb": [
+          137,
+          84,
+          180
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 53.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-54",
+        "rgb": [
+          136,
+          82,
+          178
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 54.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-55",
+        "rgb": [
+          134,
+          80,
+          177
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 55.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-56",
+        "rgb": [
+          133,
+          78,
+          176
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 56.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-57",
+        "rgb": [
+          131,
+          76,
+          174
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 57.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-58",
+        "rgb": [
+          129,
+          74,
+          173
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 58.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-59",
+        "rgb": [
+          128,
+          72,
+          172
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 59.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-60",
+        "rgb": [
+          126,
+          70,
+          170
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 60.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-61",
+        "rgb": [
+          125,
+          68,
+          169
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 61.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-62",
+        "rgb": [
+          123,
+          66,
+          168
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 62.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-63",
+        "rgb": [
+          122,
+          65,
+          166
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 63.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-64",
+        "rgb": [
+          120,
+          63,
+          165
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 64.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-65",
+        "rgb": [
+          119,
+          61,
+          164
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 65.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-66",
+        "rgb": [
+          117,
+          59,
+          162
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 66.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-67",
+        "rgb": [
+          116,
+          58,
+          161
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 67.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-68",
+        "rgb": [
+          114,
+          56,
+          160
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 68.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-69",
+        "rgb": [
+          113,
+          54,
+          158
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 69.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-70",
+        "rgb": [
+          111,
+          52,
+          157
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 70.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-71",
+        "rgb": [
+          110,
+          51,
+          156
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 71.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-72",
+        "rgb": [
+          108,
+          49,
+          154
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 72.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-73",
+        "rgb": [
+          107,
+          48,
+          153
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 73.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-74",
+        "rgb": [
+          105,
+          46,
+          152
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 74.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-75",
+        "rgb": [
+          104,
+          44,
+          150
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 75.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-76",
+        "rgb": [
+          102,
+          43,
+          149
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 76.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-77",
+        "rgb": [
+          101,
+          41,
+          148
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 77.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-78",
+        "rgb": [
+          100,
+          40,
+          146
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 78.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-79",
+        "rgb": [
+          98,
+          38,
+          145
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 79.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-80",
+        "rgb": [
+          97,
+          37,
+          144
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 80.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-81",
+        "rgb": [
+          95,
+          35,
+          142
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 81.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-82",
+        "rgb": [
+          94,
+          34,
+          141
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 82.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-83",
+        "rgb": [
+          93,
+          33,
+          140
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 83.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-84",
+        "rgb": [
+          91,
+          31,
+          139
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 84.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-85",
+        "rgb": [
+          90,
+          30,
+          137
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 85.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-86",
+        "rgb": [
+          89,
+          28,
+          136
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 86.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-87",
+        "rgb": [
+          87,
+          27,
+          135
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 87.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-88",
+        "rgb": [
+          86,
+          26,
+          133
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 88.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-89",
+        "rgb": [
+          85,
+          25,
+          132
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 89.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-90",
+        "rgb": [
+          83,
+          23,
+          131
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 90.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-91",
+        "rgb": [
+          82,
+          22,
+          129
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 91.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-92",
+        "rgb": [
+          81,
+          21,
+          128
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 92.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-93",
+        "rgb": [
+          79,
+          20,
+          127
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 93.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-94",
+        "rgb": [
+          78,
+          18,
+          125
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 94.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-95",
+        "rgb": [
+          77,
+          17,
+          124
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 95.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-96",
+        "rgb": [
+          76,
+          16,
+          123
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 96.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-97",
+        "rgb": [
+          75,
+          15,
+          121
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 97.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-98",
+        "rgb": [
+          73,
+          14,
+          120
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 98.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-99",
+        "rgb": [
+          72,
+          13,
+          119
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 99.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      },
+      {
+        "id": "protection-100",
+        "rgb": [
+          71,
+          12,
+          117
+        ],
+        "intensity_uw_cm2": null,
+        "protection_percent": 100.0,
+        "source_protection_percent": null,
+        "source_transmission_percent": null,
+        "source_image": null
+      }
+    ]
+  }
+]
