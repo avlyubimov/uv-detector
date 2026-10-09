@@ -1,17 +1,19 @@
 import logging
 import math
 import os
+from io import BytesIO
 from pathlib import Path
 
 import httpx
 from dotenv import load_dotenv
+from PIL import Image
 from pydantic import ValidationError
 from telegram import Update
 from telegram.error import TelegramError
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 
 from detector import MAX_FILE_BYTES
-from models import AnalysisResponse, DEFAULT_LIBRARY_ID
+from models import AnalysisResponse, DEFAULT_LIBRARY_ID, RGB
 
 
 logger = logging.getLogger(__name__)
@@ -67,7 +69,7 @@ def format_result(result: AnalysisResponse) -> str:
         f"Интенсивность: ≈ {estimate.intensity_uw_cm2:g} мкВт/см²",
         f"Пропускание: ≈ {estimate.transmission_percent:g}%",
         f"Защита: {protection}",
-        f"Цвет полоски: {result.sampling.hex}",
+        "Цвет полоски — на образце выше.",
     ]
     if result.status == "uncertain":
         lines.append("Выбран ближайший оттенок; совпадение приблизительное.")
@@ -76,6 +78,14 @@ def format_result(result: AnalysisResponse) -> str:
     if not result.measurement_validated:
         lines.extend(["", "Расчёт по учебной шкале."])
     return "\n".join(lines)
+
+
+def make_color_sample(rgb: RGB) -> bytes:
+    output = BytesIO()
+    with Image.new("RGB", (256, 256), (160, 160, 160)) as sample:
+        sample.paste(rgb, (8, 8, 248, 248))
+        sample.save(output, format="PNG")
+    return output.getvalue()
 
 
 async def analyze_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -110,7 +120,14 @@ async def analyze_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         logger.warning("Не удалось скачать фото или получить ответ API.")
         await message.reply_text("Сервис анализа временно недоступен. Попробуйте позже.")
         return
-    await message.reply_text(format_result(result)[:4000])
+    if result.estimate is None:
+        await message.reply_text(format_result(result)[:4000])
+    else:
+        await message.reply_photo(
+            photo=make_color_sample(result.sampling.rgb),
+            caption=format_result(result)[:1024],
+            filename="uv-color.png",
+        )
 
 
 async def on_error(_update: object, _context: ContextTypes.DEFAULT_TYPE):
