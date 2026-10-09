@@ -115,12 +115,19 @@ def find_card(image: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
     hsv = cv2.cvtColor(small, cv2.COLOR_RGB2HSV)
     hue, saturation, value = cv2.split(hsv)
     chromatic = (hue >= 85) & (hue <= 165) & (saturation >= 45) & (value > 95)
+    pale_chromatic = (hue >= 85) & (hue <= 165) & (saturation >= 12) & (value > 95)
     neutral = (saturation < 45) & (value > 165)
+    dim_neutral = (saturation < 45) & (value > 95)
     contours = []
-    for mask in (chromatic, neutral, chromatic | neutral):
+    for mask in (chromatic, pale_chromatic, neutral, dim_neutral, chromatic | neutral):
         mask = cv2.morphologyEx(mask.astype(np.uint8) * 255, cv2.MORPH_CLOSE, np.ones((9, 9), np.uint8))
         found, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         contours.extend(sorted(found, key=cv2.contourArea, reverse=True)[:5])
+    edges = cv2.Canny(cv2.GaussianBlur(small, (5, 5), 0), 15, 45)
+    for kernel_size in (3, 7):
+        mask = cv2.morphologyEx(edges, cv2.MORPH_CLOSE, np.ones((kernel_size, kernel_size), np.uint8))
+        found, _ = cv2.findContours(mask, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+        contours.extend(sorted(found, key=cv2.contourArea, reverse=True)[:15])
     candidates = []
     destination = np.float32([[0, 0], [CARD_WIDTH - 1, 0], [CARD_WIDTH - 1, CARD_HEIGHT - 1], [0, CARD_HEIGHT - 1]])
     for contour in contours:
@@ -148,15 +155,21 @@ def find_card(image: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
             transform = cv2.getPerspectiveTransform(corners, destination)
             card = cv2.warpPerspective(image, transform, (CARD_WIDTH, CARD_HEIGHT))
         center = corners.mean(axis=0)
-        if any(np.linalg.norm(center - candidate[3]) < min(side_lengths) * 0.2 / resize_factor for candidate in candidates):
-            continue
-        candidates.append((prominence, card, transform, center))
+        candidates.append((prominence, card, transform, center, min(side_lengths) / resize_factor))
     if not candidates:
         raise AnalysisError("card_not_found", "Не найдена UV-TEST CARD. Снимите всю карту крупно или передайте roi области TEST AREA.")
     candidates.sort(key=lambda candidate: candidate[0], reverse=True)
+    unique_candidates = []
+    for candidate in candidates:
+        if not any(
+            np.linalg.norm(candidate[3] - existing[3]) < max(candidate[4], existing[4]) * 0.2
+            for existing in unique_candidates
+        ):
+            unique_candidates.append(candidate)
+    candidates = unique_candidates
     if len(candidates) > 1 and candidates[1][0] > candidates[0][0] * 0.8:
         raise AnalysisError("multiple_cards", "В кадре несколько похожих карт. Оставьте одну или задайте roi.")
-    _, card, transform, _ = candidates[0]
+    _, card, transform, _, _ = candidates[0]
     return card, transform
 
 
