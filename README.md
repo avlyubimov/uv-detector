@@ -42,6 +42,28 @@ curl http://127.0.0.1:8000/analyze \
 Маршруты: `GET /health`, `GET /libraries`, `POST /analyze`. Готовые запросы
 для HTTP-клиента PyCharm находятся в `test_main.http`.
 
+## Развёртывание API в FastAPI Cloud
+
+В форме **Create From GitHub** выберите репозиторий `avlyubimov/uv-detector`
+и имя проекта `uv-detector`. **Root Directory оставьте пустым**: `main.py`
+и `pyproject.toml` находятся в корне репозитория.
+
+При необходимости добавьте переменную `API_KEY` и отметьте её как секрет.
+Для первого запуска API остальные переменные окружения не нужны. Нажмите
+**Create App**; после успешного развёртывания откройте адрес приложения
+с `/health` и `/docs` для проверки.
+
+В проекте заданы Python 3.14, зависимость `fastapi[standard]` и точка входа
+`main:app`. Эти настройки используются платформой при сборке и запуске.
+
+Этот запуск поднимает API анализа изображений. Telegram-бот запускается
+отдельной командой `uv run python bot.py`, как описано ниже. Для подключения
+к облачному API задайте боту `UV_API_URL` равным адресу приложения FastAPI
+Cloud, например `https://адрес-приложения.fastapicloud.dev`, и тот же `API_KEY`,
+если он задан. `TELEGRAM_BOT_TOKEN` требуется процессу бота.
+
+Официальная инструкция: https://fastapicloud.com/docs/getting-started/existing-project/.
+
 ## Запуск Telegram-бота
 
 Создайте бота через @BotFather. В отдельном терминале задайте окружение и запустите:

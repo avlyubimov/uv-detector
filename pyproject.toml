@@ -1,10 +1,10 @@
 [project]
 name = "uv-detector"
 version = "0.1.0"
-requires-python = ">=3.14"
+requires-python = "==3.14.*"
 dependencies = [
     "anyio>=4.15.1",
-    "fastapi>=0.141.1",
+    "fastapi[standard]>=0.141.1",
     "httpx>=0.28.1",
     "numpy>=2.5.3",
     "opencv-python-headless>=5.0.0.93",
@@ -15,3 +15,6 @@ dependencies = [
     "starlette>=1.7.0",
     "uvicorn>=0.54.0",
 ]
+
+[tool.fastapi]
+entrypoint = "main:app"
