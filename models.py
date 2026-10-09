@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field, model_validator
 
 
 LibraryId = Literal["photo_examples", "document_template"]
-DEFAULT_LIBRARY_ID: LibraryId = "document_template"
+DEFAULT_LIBRARY_ID: LibraryId = "photo_examples"
 ColorChannel = Annotated[int, Field(ge=0, le=255)]
 RGB = tuple[ColorChannel, ColorChannel, ColorChannel]
 

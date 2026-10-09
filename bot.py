@@ -36,8 +36,9 @@ async def start(update: Update, _context: ContextTypes.DEFAULT_TYPE):
         await update.effective_message.reply_text(
             "Отправьте фото одной UV-TEST CARD целиком, крупно и без бликов. "
             "Лучше отправлять изображение как файл без сжатия.\n\n"
-            "Я найду цвет TEST AREA в таблице цветов и покажу интенсивность, "
-            "пропускание и защиту по учебной шкале.\n\n"
+            "Я сравню цвет TEST AREA с фотоэталонами и покажу оценку интенсивности, "
+            "пропускания и защиты. Светлый эталон — 0% пропускания и 100% защиты; "
+            "фиолетовый контроль без барьера — 100% пропускания и 0% защиты.\n\n"
             "Контрольная интенсивность: 1500 мкВт/см². Изменить: /reference 1500."
         )
 
@@ -76,7 +77,11 @@ def format_result(result: AnalysisResponse) -> str:
     if estimate.protection_percent is None:
         lines.append("Проверьте контрольную интенсивность: она ниже оценки для полоски.")
     if not result.measurement_validated:
-        lines.extend(["", "Расчёт по учебной шкале."])
+        disclaimer = (
+            "Расчёт по учебной шкале." if result.library_id == "document_template"
+            else "Оценка по фотоэталонам; точность не подтверждена."
+        )
+        lines.extend(["", disclaimer])
     return "\n".join(lines)
 
 

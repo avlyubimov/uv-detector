@@ -85,7 +85,7 @@ async def lifespan(application: FastAPI):
 
 app = FastAPI(
     title="UV Detector API", version="0.1.0", lifespan=lifespan,
-    description="Школьный проект: сопоставление цвета TEST AREA с учебной таблицей из 101 цвета. По умолчанию используется document_template; калиброванные данные можно заменить в библиотеке.",
+    description="Школьный проект: сопоставление цвета TEST AREA с пятью фотоэталонами. По умолчанию используется photo_examples: светлый эталон — 0% пропускания, фиолетовый контроль без барьера — 100%. Точность на независимых измерениях не подтверждена.",
 )
 app.add_middleware(UploadLimitMiddleware)
 
