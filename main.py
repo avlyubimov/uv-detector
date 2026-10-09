@@ -3,16 +3,23 @@ from functools import partial
 import hmac
 import os
 from typing import Annotated
+from urllib.parse import urlsplit
 
 import anyio
+import httpx
 from fastapi import Depends, FastAPI, File, Form, Header, HTTPException, Request, UploadFile
 from fastapi.responses import JSONResponse
 from pydantic import ValidationError
 from starlette.types import ASGIApp, Receive, Scope, Send
+from telegram import Update
 
+from bot import build_application, close_api_client, open_api_client
 from detector import AnalysisError, MAX_FILE_BYTES
 from library import analyze_photo, load_libraries
 from models import AnalysisResponse, ColorLibrary, DEFAULT_LIBRARY_ID, ErrorResponse, LibraryId, Region
+
+
+TELEGRAM_WEBHOOK_PATH = "/telegram/webhook"
 
 
 class UploadLimitMiddleware:
@@ -40,7 +47,40 @@ class UploadLimitMiddleware:
 async def lifespan(application: FastAPI):
     load_libraries()
     application.state.analysis_limiter = anyio.CapacityLimiter(2)
-    yield
+    application.state.telegram_application = None
+    application.state.telegram_webhook_secret = ""
+    token = os.getenv("TELEGRAM_BOT_TOKEN")
+    if not token:
+        yield
+        return
+    base_url = os.getenv("UV_API_URL", "").rstrip("/")
+    parsed_url = urlsplit(base_url)
+    if (
+        parsed_url.scheme != "https" or not parsed_url.hostname
+        or parsed_url.path not in {"", "/"} or parsed_url.username or parsed_url.password
+        or parsed_url.query or parsed_url.fragment
+    ):
+        raise RuntimeError("Для Telegram webhook задайте UV_API_URL с публичным HTTPS-адресом API без /docs.")
+    secret = hmac.new(token.encode(), b"uv-detector-telegram-webhook", "sha256").hexdigest()
+    telegram_application = build_application(token, webhook=True)
+    async with telegram_application:
+        await open_api_client(telegram_application, transport=httpx.ASGITransport(app=application))
+        try:
+            await telegram_application.start()
+            await telegram_application.bot.set_webhook(
+                url=base_url + TELEGRAM_WEBHOOK_PATH, secret_token=secret,
+                allowed_updates=["message"], max_connections=2,
+            )
+            application.state.telegram_application = telegram_application
+            application.state.telegram_webhook_secret = secret
+            yield
+        finally:
+            application.state.telegram_application = None
+            try:
+                if telegram_application.running:
+                    await telegram_application.stop()
+            finally:
+                await close_api_client(telegram_application)
 
 
 app = FastAPI(
@@ -73,6 +113,31 @@ async def root():
 @app.get("/health")
 async def health():
     return {"status": "ok", "libraries": len(load_libraries())}
+
+
+@app.post(
+    TELEGRAM_WEBHOOK_PATH,
+    responses={status: {"model": ErrorResponse} for status in (400, 401, 503)},
+)
+async def telegram_webhook(
+    request: Request,
+    secret_token: Annotated[str | None, Header(alias="X-Telegram-Bot-Api-Secret-Token")] = None,
+) -> dict[str, bool]:
+    telegram_application = request.app.state.telegram_application
+    if telegram_application is None:
+        raise HTTPException(503, detail={"code": "telegram_disabled", "message": "Telegram webhook не настроен."})
+    expected = request.app.state.telegram_webhook_secret
+    if not hmac.compare_digest((secret_token or "").encode(), expected.encode()):
+        raise HTTPException(401, detail={"code": "unauthorized", "message": "Неверный секрет Telegram webhook."})
+    try:
+        payload = await request.json()
+        if not isinstance(payload, dict) or type(payload.get("update_id")) is not int:
+            raise ValueError
+        update = Update.de_json(payload, telegram_application.bot)
+    except (ValueError, TypeError, KeyError, AttributeError):
+        raise HTTPException(400, detail={"code": "invalid_update", "message": "Некорректное обновление Telegram."}) from None
+    await telegram_application.process_update(update)
+    return {"ok": True}
 
 
 @app.get("/libraries", response_model=list[ColorLibrary], dependencies=[Depends(verify_api_key)])

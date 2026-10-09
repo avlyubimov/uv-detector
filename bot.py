@@ -1,8 +1,10 @@
 import logging
 import math
 import os
+from pathlib import Path
 
 import httpx
+from dotenv import load_dotenv
 from pydantic import ValidationError
 from telegram import Update
 from telegram.error import TelegramError
@@ -15,11 +17,11 @@ from models import AnalysisResponse, DEFAULT_LIBRARY_ID
 logger = logging.getLogger(__name__)
 
 
-async def open_api_client(application: Application):
+async def open_api_client(application: Application, transport: httpx.AsyncBaseTransport | None = None):
     headers = {"X-API-Key": os.environ["API_KEY"]} if os.getenv("API_KEY") else {}
     application.bot_data["api_client"] = httpx.AsyncClient(
         base_url=os.getenv("UV_API_URL", "http://127.0.0.1:8000").rstrip("/"),
-        headers=headers, timeout=45.0,
+        headers=headers, timeout=45.0, transport=transport,
     )
 
 
@@ -115,19 +117,29 @@ async def on_error(_update: object, _context: ContextTypes.DEFAULT_TYPE):
     logger.error("Ошибка обработки Telegram update; проверьте доступность Telegram и API.")
 
 
-def main():
-    token = os.getenv("TELEGRAM_BOT_TOKEN")
-    if not token:
-        raise SystemExit("Задайте TELEGRAM_BOT_TOKEN, полученный у @BotFather.")
-    logging.basicConfig(level=logging.WARNING)
-    application = (
+def build_application(token: str, *, webhook: bool = False) -> Application:
+    logging.getLogger("httpx").setLevel(logging.WARNING)
+    builder = (
         Application.builder().token(token)
-        .post_init(open_api_client).post_shutdown(close_api_client).build()
+        .post_init(open_api_client).post_shutdown(close_api_client)
     )
+    if webhook:
+        builder = builder.updater(None)
+    application = builder.build()
     application.add_handler(CommandHandler(["start", "help"], start))
     application.add_handler(CommandHandler("reference", set_reference))
     application.add_handler(MessageHandler(filters.PHOTO | filters.Document.IMAGE, analyze_message))
     application.add_error_handler(on_error)
+    return application
+
+
+def main():
+    load_dotenv(Path(__file__).with_name(".env"))
+    token = os.getenv("TELEGRAM_BOT_TOKEN")
+    if not token:
+        raise SystemExit("Добавьте TELEGRAM_BOT_TOKEN от @BotFather в .env или переменные окружения.")
+    logging.basicConfig(level=logging.WARNING)
+    application = build_application(token)
     application.run_polling(allowed_updates=["message"])
 
 

@@ -10,6 +10,7 @@ dependencies = [
     "opencv-python-headless>=5.0.0.93",
     "pillow>=12.3.0",
     "pydantic>=2.13.5",
+    "python-dotenv>=1.2.4",
     "python-multipart>=0.0.32",
     "python-telegram-bot>=22,<23",
     "starlette>=1.7.0",
